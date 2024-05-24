@@ -1,0 +1,13 @@
+CDN : Content Delivery Network
+It is basically used to deliver photos , videos or data 
+acc to geographic access and it works like this if u ask 
+react cdn for development.js or react-domdevelpment.js then it will check
+ede server where if the content is available it will provide from
+there or it will go to us for all data and cache it to edge server.
+
+
+Now 
+1 query : Why does React command work when we use cdn but does not work on create-react-app?
+1 : It works because cdn get react.js data globally attached to window object whereas cre... app import react as es6 modules which are not attched to global object.
+
+

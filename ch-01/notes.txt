@@ -5,9 +5,39 @@ react cdn for development.js or react-domdevelpment.js then it will check
 ede server where if the content is available it will provide from
 there or it will go to us for all data and cache it to edge server.
 
-
 Now 
 1 query : Why does React command work when we use cdn but does not work on create-react-app?
 1 : It works because cdn get react.js data globally attached to window object whereas cre... app import react as es6 modules which are not attched to global object.
+
+*****Document api ke baare me pdo ace se******
+
+1.React.createElement() jo h wo element nhi bnaega blki ek object bnata h jisko baadme tag em convert kia jata h .. or us ovject ki bhut saari properties hoti h .. see console.log(heading)
+2.So I have seen React.createElement() does object creating and so much tedious code so that is why nesting become messy so JSX came into our life.
+3.Always remember flow of code is reat-script -> reactdom-script -> appjs 
+
+
+2 query Where should we place script tag????
+    2.1 In head 
+        2.1.1 placed in like 
+            <head>
+                <script scr=""></script>
+            </head>
+            It will slow down the website as all the script is run before the html is parsed.
+        2.1.2 placed in head but with 'defer'
+            <head>
+                <script scr="" defer></script>
+            </head>
+            It is similar to placing the script in end of body. because it will wiat for the html to parse then load script
+    2.2 send in body
+        2.2.1 send in end : recommended pratice as it loads script once hml is parsed ideal for DOM manipulation
+        2.2.2 send in top : error dega kyuki wo example kisi element ko access krra h jiski id red h .... but abhi tak dom me wo elment aaya nhi to not recmmmended doing this
+
+
+
+Whatever is root rendering will replace if anything is already is present in that tag.
+
+//Library and a framewrork.....
+React is a Library ...... (some piece of js code) giving us helper method to devlop gfaster applications...
+not all frameworks can be added to existing app but react can do that because it is just a small library.
 
 

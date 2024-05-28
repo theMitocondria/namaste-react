@@ -1,0 +1,115 @@
+/////////////////////chapter 01 /////////////////////////////////////////////////////////////////////////
+CDN : Content Delivery Network
+It is basically used to deliver photos , videos or data 
+acc to geographic access and it works like this if u ask 
+react cdn for development.js or react-domdevelpment.js then it will check
+ede server where if the content is available it will provide from
+there or it will go to us for all data and cache it to edge server.
+
+Now 
+1 query : Why does React command work when we use cdn but does not work on create-react-app?
+1 : It works because cdn get react.js data globally attached to window object whereas cre... app import react as es6 modules which are not attched to global object.
+
+*****Document api ke baare me pdo ace se******
+
+1.React.createElement() jo h wo element nhi bnaega blki ek object bnata h jisko baadme tag em convert kia jata h .. or us ovject ki bhut saari properties hoti h .. see console.log(heading)
+2.So I have seen React.createElement() does object creating and so much tedious code so that is why nesting become messy so JSX came into our life.
+3.Always remember flow of code is reat-script -> reactdom-script -> appjs 
+
+
+2 query Where should we place script tag????
+    2.1 In head 
+        2.1.1 placed in like 
+            <head>
+                <script scr=""></script>
+            </head>
+            It will slow down the website as all the script is run before the html is parsed.
+        2.1.2 placed in head but with 'defer'
+            <head>
+                <script scr="" defer></script>
+            </head>
+            It is similar to placing the script in end of body. because it will wiat for the html to parse then load script
+    2.2 send in body
+        2.2.1 send in end : recommended pratice as it loads script once hml is parsed ideal for DOM manipulation
+        2.2.2 send in top : error dega kyuki wo example kisi element ko access krra h jiski id red h .... but abhi tak dom me wo elment aaya nhi to not recmmmended doing this
+
+
+
+Whatever is root rendering will replace if anything is already is present in that tag.
+
+//Library and a framewrork.....
+React is a Library ...... (some piece of js code) giving us helper method to devlop gfaster applications...
+not all frameworks can be added to existing app but react can do that because it is just a small library.
+that is why react is only manipulating root.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DO GIT and GITHUB before everything else because it is necessary
+
+///////////////////////////////////////////////Chapter 02 //////////////////////////////////////////////
+difference between 
+
+1.  devdependency : It is only required while development phase like testing module : Jest , install krne ke liye -D lga do example: npm i -D parcel
+    dependency : it is a module which is required for project to run in production
+
+package versions : x.y.z , major . minor . patch update
+2.   ~(Tilde) : only jab z ki value change hui tab hoga automatic update (oonly bug fixes , security updates)
+     ^(caret) : only jab y , z ki value change hui tab hoga updata means koi features add ho skte h
+but ye above dono kaam tabhi aaege jab koi npm i ya noom update run krega na ki khudse uppdate hore
+    (GO TO GFG EXACT SMJHA DEGA)btw video me glt btaya h 1:03:26
+
+3.  package.json : It is ID card of any project which tells name of the project , version , dev dependency , dependency etc
+                    it is seen by npm i command then it will see ^ , ~ sign from it to configure package.
+    package-lock.json : It containds exact version that means source rkhega (integrity) ki konsa krlu download etc. but agr npm update command h to change
+                    hoga package-lock.json werna nhi hoga
+    (GO TO CHATGPT FOR EXACT SMJHA DEGA)
+
+4.  npm : A commad line tool which is used for installing , running , removing packages.
+    npx : A command line ool used when u dont want to install any dependency as it is needed once (If that dependency is already present it will take local version)
+          else use it without installing.
+
+5.  react : React is a JavaScript frameowrk for building user interfaces. It allows developers to create reusable UI components and manage the state of their applications.
+    react-dom : ReactDOM is a library that provides DOM-specific methods to manage the interaction between React components and the DOM. It serves as the bridge between 
+                 React components and the browser's DOM.
+                 ReactDOM is responsible for rendering React components to the DOM
+
+6. dist : It is a directory which will be used as production builder , all your JavaScript, CSS, HTML, and other assets are bundled
+             and optimized by Parcel and placed in this directory. The files are usually minified and optimized for performance.
+   .parcel-cache : it helps to store cached files when we are using parcel as a bundler in our app , it helps in faster reloads and also
+            helps to keeps temp files to speed up subsequent build (Jo save hote hi change ho jata h)
+
+NOW : 
+
+1. NPM does not stand for node package manager , yeah it is mostly widely used package manager which uses nodejs as 
+its js runtime environment but uski full form wo nhi h. NPM Ek jagah h jaha se hum open sources oackages use 
+kr skte h for our own projects
+
+2. Transient dependency : Jese humne koi Parcel package dl kia lekin actual me bhut bada node module isiliye bna kyuki Parcel is our dependencybut parcel will have some of dependency of its 
+own and similary they will have dependency this make a recursion and is called transient dependency.
+
+3. Parcel ak bundler h , ab bundler kya hota h ,
+    3.1 BUndler ek esi cheej h jo humari website me different js , css , html file ko optimise , load , code splitting (lazy loading ) etc sab krta have
+   lekin parcel ke allwa bhi bundler hote h ex: webpack (used in npx create react app) , vite etc sabka kam ek h krene ka tarika alag have
+
+4.  Type module : This means our whole codebase can be split into smaller code packets and it also helps it in import export functionaliyi..
+    like when we used React from cdn it is globally available but when we use module then it is available in that where it is imported.
+
+

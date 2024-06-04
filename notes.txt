@@ -1,3 +1,15 @@
+//////////////////////////////////some js////////////////////
+Detailed Explanation:
+Primitive Types (Pass-by-Value):
+When a primitive type is passed to a function, JavaScript creates a copy of the value and assigns it to the parameter. The parameter 
+and the original variable hold different values in memory.
+
+Objects (Pass-by-Reference):
+When an object is passed to a function, the reference (or memory address) of the object is passed to the parameter. Both the parameter and 
+the original variable point to the same object in memory. Consequently, modifications to the object via the parameter are reflected in the original object.
+
+
+
 /////////////////////chapter 01 /////////////////////////////////////////////////////////////////////////
 CDN : Content Delivery Network
 It is basically used to deliver photos , videos or data 
@@ -38,14 +50,18 @@ Now
 Whatever is root rendering will replace if anything is already is present in that tag.
 
 //Library and a framewrork.....
-React is a Library ...... (some piece of js code) giving us helper method to devlop gfaster applications...
+1.React is a Library ...... (some piece of js code) giving us helper method to devlop gfaster applications...
 not all frameworks can be added to existing app but react can do that because it is just a small library.
 that is why react is only manipulating root.
+2.innerhtml vs innertext : https://www.microfocus.com/documentation/silk-test/200/en/silktestworkbench-help-en/SILKTEST-21EEFF3F-DIFFERENCEBETWEENTEXTCONTENTSINNERTEXTINNERHTML-REF.html 
 
-
-
-
-
+// why to put () these,
+const JSXHeading = (
+    // isme attributes hmesh camel case me aata h
+    <h1 className="head" tabIndex="1">
+        I am JSX Heading
+    </h1>
+)
 
 
 
@@ -113,3 +129,105 @@ own and similary they will have dependency this make a recursion and is called t
     like when we used React from cdn it is globally available but when we use module then it is available in that where it is imported.
 
 
+
+//////////////////////////till ch-02 when we were using js noot jsx ///////////////////////////////////////////
+
+
+// //creating any element , {} => curly bracket me attributes jaaege aapke tags ke example , src , id , class , type
+// const heading = React.createElement("h1", { id: "red" }, "Hi I am from Reactjs")
+// //creating a root is compulsory and is done by dom 
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// const nest_div = React.createElement("div", { id: "parent" },
+//     React.createElement("div", { id: "child" },
+//         [
+//             React.createElement("h1", {}, "I  rendered by nesting"),
+//             React.createElement("h2", {}, "I am rendered by nesting2")
+//         ]
+//     )
+// )
+// root.render(nest_div);
+// // console.log(nest_div);
+
+
+
+
+
+
+
+
+
+//////////////////////////ch-03 ////////////////////////////////////////
+
+1. JSX : It stands for Javascript XML and it is syntax extensionin javascript
+         which allows you to write HTML code in Js code. 
+         ex : const ele = <h2>Ram is a boy </h2>  this is a valid js syntax because of extension
+            but remember ye JS ka extension h naki JS , to ye JS engine me execute nhi hogi.
+         And also remember JSX ke bina bhi React likhi ja skti h 
+
+
+2. babel (transpiler || js compiler) : JSX to React needs to be converted because JSX Can not be read 
+            by JS Engine in browser  So Babel Came , it is basically ka compiler(JS) or transpiler which 
+            converts JSX code or TS code into browser understandable JS.
+
+            EX : const ele = <h1> RAM is a hero </h1>  converted to 
+                const ele = React.createElement("h2" , {attributes} , "Ram is a Hero ");
+
+******Always start  a component name in Capital letters************
+Component composition: When we nest one component inside other like below by making different functional component in a way we are reusing 
+                        smaller components to male a larger component is callled componen composition.
+
+//if i want to make a functional component :
+const F1 = function(){
+    return (
+        <h1>
+            <F2/>
+            This is a functional Component
+        </h1>
+    );
+}
+
+//second way to wrtite a functional component 
+const F2 = ()=>(
+    <div>
+        <h1>
+            This is also right way of writing functional components.
+            {/* here {return ()} is replaced by () so dont think why are we not returning */}
+        </h1>
+    </div>
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//inside root we can render only react elemenet so <functional /> becomes element(for now)
+root.render(<F1/>);
+
+Functional Components are a piece of JS function which returns JSX code or HTML code.
+
+-> Order maintaninence due to const variable variable being in Temporal Dead Zone (WE can not access anything before initialization)
+-> cross site scripting is kind of security vulnerablity it occurs when an attacker injects malicious data 
+into clients browser and it runs there leading to attacker getting information such as user session , user cookies etc.
+-> diff between <Title/> amd <Title></Title>
+-> Why I was able to do Title() 
+do above two in detailed way be implementing in code play ground .. hint (<title/> is called when there is no children of the component.whereas <title><title/> is called so we can add childer in between thse two)
+
+
+
+
+
+
+
+
+
+
+//chapter -04 doing coding 
+-> HTML components are case insensitive that is does not matter we write <h1> or <H1> they both are same but
+JSX is case sensitive by default all the html elemennt are written in first small case letter whereas capital first letter indicate custom JSX element
+so <H1> is different frm <h1>
+    Summary:
+    <h1> is interpreted as an HTML heading element.
+    <H1> is interpreted as a custom React component.
+-> props , children me difference or props in details:
+    Actually ...
+-> config driven ui : our website is driven by dataa (controllling ui from data by backend )
+why we need key in array

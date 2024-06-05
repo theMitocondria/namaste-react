@@ -9,6 +9,8 @@ When an object is passed to a function, the reference (or memory address) of the
 the original variable point to the same object in memory. Consequently, modifications to the object via the parameter are reflected in the original object.
 
 
+Questions of JS : https://www.linkedin.com/posts/rajendra-jangid-195002252_javascript-interview-questions-activity-7203424924491747329-aJTr?utm_source=combined_share_message&utm_medium=member_ios
+
 
 /////////////////////chapter 01 /////////////////////////////////////////////////////////////////////////
 CDN : Content Delivery Network
@@ -207,7 +209,9 @@ Functional Components are a piece of JS function which returns JSX code or HTML 
 -> Order maintaninence due to const variable variable being in Temporal Dead Zone (WE can not access anything before initialization)
 -> cross site scripting is kind of security vulnerablity it occurs when an attacker injects malicious data 
 into clients browser and it runs there leading to attacker getting information such as user session , user cookies etc.
--> diff between <Title/> amd <Title></Title>
+-> diff between <Title/> amd <Title></Title> {Title}
+    {TITLE} Ese component bhejna tab kaam aata h jab hume ek component doosre component me as a child behjna for example dynamic rendering means jab hume if else lagana ho etc
+    <title></title> ese hum jab bhejte h jab hume as a children bhjma ho kis ko (practice me dekho)
 -> Why I was able to do Title() 
 do above two in detailed way be implementing in code play ground .. hint (<title/> is called when there is no children of the component.whereas <title><title/> is called so we can add childer in between thse two)
 
@@ -229,5 +233,146 @@ so <H1> is different frm <h1>
     <H1> is interpreted as a custom React component.
 -> props , children me difference or props in details:
     Actually ...
+    props is just short form of properties isme jitne bhi attributes hum denge jo props ki trh pass honge or wha render ho jaege , lekin children me hum poora ek component bhi bhej skte h
+    Purpose:
+
+    Props: Used to pass various types of data (strings, numbers, objects, functions) to a component.
+    Children: Specifically used to pass nested elements or components to a component.
 -> config driven ui : our website is driven by dataa (controllling ui from data by backend )
 why we need key in array
+
+-> <></> this is a fragment this is react fragment element it is kind of cover u can say because it contains multiple element in it self without adding an addition DOM element (bina div ke bhut saare eleemt return 
+krne me asaani or ye better h styling pov se bhi semantic pov se bhi)
+
+-> Virtual DOM:React maintains a virtual representation of the UI in memory, which is called the virtual DOM.
+When the state or props of a component change, React creates a new virtual DOM tree.
+
+-> reconsilation (how the changes made in code is updated fastly by react , this is a proces of comparing elements then just changing only changed element in actual dom)
+-> key rkhni chahiye hmesha kyuki key compare krne me asan hota h konsa change hua h wo krd (even index to nhi krna chahiye)
+->If a component's type changes (e.g., from <div> to <span>), React destroys the old component and mounts the new one.
+If the component type remains the same, React reuses the existing component instance, updating only the changed props or state.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////ch-05/////////////////////////////////
+
+->named export vs default export :
+
+    A: ES6 provides us to import & export a module and use it in other files. ES6 provides two ways to export a module from a file: `named export` and `default export`.
+    In `Named export`, one can have multiple named exports per file. Then import the specific exports they want surrounded in `{}` braces. The name of imported module has to be the same as the name of the exported module.
+    In `Named export`, the component is exported from MyComponent.js file like:
+
+        ```
+        export const MyComponent = () => {}
+        export const MyComponent2 = () => {}
+        ```
+    and the component is imported from MyComponent.js file like: here we must use `{}` in MyComponent.
+    // ex. importing a single named export
+        import { MyComponent } from "./MyComponent";
+
+    // ex. importing multiple named exports
+        import { MyComponent, MyComponent2 } from "./MyComponent";
+
+    // ex. giving a named import a different name by using "as":
+        import { MyComponent2 as MyNewComponent } from "./MyComponent";
+    ```
+
+    In `Default export`, One can have only one default export per file. The naming of import is completely independent in default export and we can use any name we like.
+    In `Default export`, the component is exported from MyComponent.js file like:
+
+    ```
+        const MyComponent = () => {}
+        export default MyComponent;
+    ```
+
+    and the component is imported from MyComponent.js file like: here we must omit `{}` in MyComponent.
+
+    ```
+        import MyComponent from "./MyComponent";
+    ```
+
+    In `* as export`, it is used to import the whole module as a component and access the components inside the module.
+    In `* as export`, the component is exported from MyComponent.js file like:
+
+    ```
+        export const MyComponent = () => {}
+        export const MyComponent2 = () => {}
+        export const MyComponent3 = () => {}
+    ```
+
+    and the component is imported from MyComponent.js file like:
+
+    ```
+        import * as MainComponents from "./MyComponent";
+    ```
+
+    Now we can use them in JSX as:
+
+    ```
+        <MainComponents.MyComponent />
+        <MainComponents.MyComponent2 />
+        <MainComponents.MyComponent3 />
+    ```
+
+    We can use `Named export` and `Default export` together. So you should export like:
+
+    ```
+        export const MyComponent2 = () => {}
+        const MyComponent = () => {}
+        export default MyComponent;
+    ```
+
+    and import like:
+
+    ```
+    import MyComponent, {MyComponent2} from "./MyComponent";
+```
+
+->hook and its power :
+    they are simple js functions which helps us to use state and various react features inside functional components.
+->whenever a react state variables update react rerenders the components(react hook is just a js function)
+->ultimately virtul dom is js object which do comparison and updates actual dom
+->react is doing fast dom manipulation because of virtual dom that is why it is fast
+useState hook
+
+(Each hook ke baare me pdna and uska use aana chahaiye wo sikhna h)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////ch06

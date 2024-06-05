@@ -80,3 +80,16 @@
     margin-right: 1vw;
     border-radius: 0.4vh;
 }
+.div_with_clickme{
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 2vw;
+}
+.clickME{
+    background-color: white;
+    border: none;
+    color: rgb(198, 214, 199);
+    font-weight: 900;
+    font-size: 4vh;
+    cursor: pointer;
+}

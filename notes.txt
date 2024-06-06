@@ -375,4 +375,8 @@ useState hook
 
 
 
-///////////////////////////////////////////ch06
+///////////////////////////////////////////ch06/////////////////////////
+
+->Monolith vs Microservice - Architecture , cors , shimer ui
+-> whatever is written in useEffect it will only be called after the component is rendered
+

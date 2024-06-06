@@ -5,7 +5,7 @@ import { IMAGE_BASE } from "./utils/url.js";
 export default Card = (props) => {
     const data = props.props;
     const imageaddress = IMAGE_BASE + data.cloudinaryImageId;
-    console.log(imageaddress);
+   
     return (
         <div>
             {/* restaurant container card */}

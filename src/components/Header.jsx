@@ -1,8 +1,9 @@
-import React from "react"
-import { LOGO_URL} from "./utils/url.js"
+import React, { useState } from "react"
+import { LOGO_URL } from "./utils/url.js"
 
 
-export default  Header = () => {
+export default Header = () => {
+    const [login, setlogin] = useState("Login")
     return (
         <div className="header">
             <div className="image_of_headeer">
@@ -16,6 +17,8 @@ export default  Header = () => {
                     <li> Search </li>
                     <li> Offers</li>
                     <li> Help</li>
+                    <button
+                        onClick={() => { login ==="Login" ? setlogin("Logout") : setlogin("Login") }}>l{login}</button>
                 </ul>
             </div>
         </div>

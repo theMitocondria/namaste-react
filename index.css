@@ -70,7 +70,7 @@
 
 .image-body-bottom-card {
     border-radius: 2vh;
-    height: 30vh;
+    width:  25vw;
 }
 
 .rating-span{
@@ -92,4 +92,18 @@
     font-weight: 900;
     font-size: 4vh;
     cursor: pointer;
+}
+.shimerCards{
+    height: 30vh ;
+    width: 20vw;;
+    margin: 1vmax;
+    border-radius: 1vmax;
+    border: 1px solid rgb(193, 187, 187);
+    background-color: rgb(228, 232, 234);
+}
+.shimerContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }

@@ -378,5 +378,22 @@ useState hook
 ///////////////////////////////////////////ch06/////////////////////////
 
 ->Monolith vs Microservice - Architecture , cors , shimer ui
--> whatever is written in useEffect it will only be called after the component is rendered
+useEffect:
+    ->if no dependency array: whatever is written in useEffect it will only be called everytime after the component is re-rendered
+        code example : useEffect(()=>{"heelo"}) // no dependency array
+    -> when givenn empty dependency array : only be called when window reloads 
+        code example : useEffect(()=>{console.log("hii")},[]) // empty array
+    -> if there is a dependency in array then : it will be called on initial renders once and after each time the dependent change
+        code example : useEffect(()=>{console.log("Hiii")},[btn]) // 1 called first render then each tie btn value change.
 
+useState :
+    ->Always create use state in a functional component top (not in if else , not outside component , not in bottom after some functions)
+
+-> always call onClick and other functions like onCLick(()=>{here do your code})// if function not made then infinite calls will be made
+-> whole componennt is rerendered as the state value changes
+
+(yaad kr setall(list) se kaam kyu nhi hua)
+
+Routing : react-router-dom:
+    ->createBrouserRouter kya krta h , kya h ?
+    -> when importing a single default kisi bhi naam se import kr skte h *  as krne ki jrurat nhi h

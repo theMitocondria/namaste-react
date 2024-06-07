@@ -2,11 +2,10 @@
   "name": "namste-react",
   "version": "1.0.0",
   "description": "This is namster-react course",
-  
   "scripts": {
     "test": "jest",
-    "start" : "parcel index.html",
-    "build" : "parcel build index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -20,9 +19,10 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1"
   },
-  "browserslist":[
+  "browserslist": [
     "last 4 version"
   ]
 }

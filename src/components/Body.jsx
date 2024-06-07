@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Shimer from "./Shimer";
+import {Link}from "react-router-dom";
 
 export default Body = function () {
     //useState is react hook use to create a state variable and manipulate it
     const [list, setList] = useState([]);
-    const [all,setAll] = useState([]);
-    const [searchbar , setsearchbar] = useState("");
+    const [all, setAll] = useState([]);
+    const [searchbar, setsearchbar] = useState("");
     //useEffect is also hook syntax => useEffect(callback function , dependency array)
     useEffect(() => {
         //once page rendered then fetch the data
@@ -16,15 +17,15 @@ export default Body = function () {
     const fetchData = async function () {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.486463086305346&lng=78.3657343313098&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        // console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setAll(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     }
     //conditional renderieng
-    const filter = ()=>{
-        console.log(searchbar);console.log(all);
-        const filteredData = all.filter((data)=>{
+    const filter = () => {
+        console.log(searchbar); console.log(all);
+        const filteredData = all.filter((data) => {
             console.log(data.info.name);
             return data.info.name === searchbar;
         })
@@ -39,16 +40,16 @@ export default Body = function () {
                 {/* search bar */}
                 <div className="div_search_bar">
                     <input
-                        value = {searchbar}
-                        onChange={(e)=>{
+                        value={searchbar}
+                        onChange={(e) => {
                             setsearchbar(e.target.value);
                             console.log(searchbar);
                         }}
                         className="search_bar"
                         placeholder="Search" />
                     <button
-                    onClick={filter} 
-                    style={{backgroundColor:"white",border:"none"}}>o</button>
+                        onClick={filter}
+                        style={{ backgroundColor: "white", border: "none" }}>o</button>
                 </div>
                 {/* heading div */}
                 <div className="div_with_clickme">
@@ -69,7 +70,9 @@ export default Body = function () {
                     {
                         list?.map((data) => {
                             return (
-                                <Card key={data.info.id} props={data.info} />
+                                <Link to = {"/in/restaurant/"+data.info.id} key={data.info.id}>
+                                    <Card key={data.info.id} props={data.info} />
+                                </Link>
                             )
                         })
                     }

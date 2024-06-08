@@ -376,7 +376,6 @@ useState hook
 
 
 ///////////////////////////////////////////ch06/////////////////////////
-
 ->Monolith vs Microservice - Architecture , cors , shimer ui
 useEffect:
     ->if no dependency array: whatever is written in useEffect it will only be called everytime after the component is re-rendered
@@ -397,3 +396,90 @@ useState :
 Routing : react-router-dom:
     ->createBrouserRouter kya krta h , kya h ?
     -> when importing a single default kisi bhi naam se import kr skte h *  as krne ki jrurat nhi h
+    -> error eleent is not donw i dont know why
+    -> routing me jese agr humne do routes de diye same path but different eleemnt to firts wala element render ho jaega
+    -> useRouteError is a hook that helps to know more about error 
+        ->const err = useRouteError()
+    -> children routes are used with the help of outlet becuase we want to have same header through out the website 
+    -> do not use <a> tag because it reloads whole page rather use <Link to="/path"></Link>
+    -> this link page will not reload pages and rather load 
+
+Class Based Components :
+    -> initialization : like functional component is js function similarly class component are js className
+    ->  class className extends React.Component{
+            render(){
+                return (
+                    <div></div>
+                )
+            }
+        }
+        export default ClassName;
+        //importing and using is same
+    ->React.Component is a class given frm react
+    -> in functional component it is returning piece of JSX , whereas in class based component , render method returns piece of JSX
+    -> How to pass props in clas based components :
+        //by making a constructor
+        class classname extends React.Component{
+            constructor(props){
+                super(props);//check why we need to write super : because we want it to be accesses anywhere
+            }
+            render(){
+                return (
+                    <div>
+                        {this.props}//available now to every thing
+                    </div>
+                )
+            }
+        }
+    -> state component kese bnaye with the help of hooks in class compinents 
+    -> when i say i am loading a clas based compnent in a react web app we are creating a instance of that class
+    -> so we shall create a dummy state variable by useState in functional component but in class based component we do this
+    -> class ClassName extends React.Component{
+        constructor(props){
+            super(props);
+            console.log(props);
+
+             // this a js obj and defined inside constructor
+            this.state = {
+                count : 1,
+                secondStateVariable : 2
+            }
+        }
+
+
+        render(){
+            //we can do destructuring here after render but before return
+            const {count , secondStateVariable} = this.state
+            return(
+                <div>    
+                    <div>{this.state.count}</div>
+                    <div>{secondStateVariable}</div>
+                </div>
+            )
+        }
+    }
+    ->ultimately functional component are using class components in the backend
+    -> never ever update state variable directly, rather use 
+        this.steState(//object bhejo )
+        example : onCLick(()=>{
+            this.setState({
+                count:this.count+1,
+                //if u want to update more than one states
+            })
+        })
+
+IMPORTATNT LIFECYCLE OF CLASS BASED Component , MOUNTED:
+    ->First of all my constructor is called then render is called  , then component did mount 
+        coonstructor -> render -> componentdidmount
+    -> componentdidmount is called after everything in the component has been called
+    -> if we want to make any api call we will do it in componentDidMount (just like UseEffect() because it was called also after the whole component
+        was completely rendered)
+    ->first we try to load with shimer ui so it does not make oour website look frreezed hen we make a api call in useefffect or didmount then we will get data update 
+        state variables then make our website.
+    -> react actually do optimization by doing steps like this
+        ->first react constructor is done then render the compnent after that dom manipulation is done so when it sees two same chilld it do not call the 
+            didmount function of that child rather second same component is constructed render then both are didmunted together.. this optimization helps react to be better
+            at dom manipulation
+    -> In useEffect(()=>{}) / we need to make a different async function because callback function can not be a async
+        but in componentDidMount we can do it direct async
+    -> componrntdidupdate is called after setstate() because update is done

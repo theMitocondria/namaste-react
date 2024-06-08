@@ -107,3 +107,13 @@
     align-items: center;
     justify-content: center;
 }
+.cardopen{
+  
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vmin;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(224, 244, 255);
+    border-radius: 1.5vmax;
+    margin: 2vmin;
+}

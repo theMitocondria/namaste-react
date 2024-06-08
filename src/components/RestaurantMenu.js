@@ -16,7 +16,7 @@ export default RestaurantMenu = () => {
     const fetchMenu = async () => {
         const data = await fetch(RESTAURANT_ITEM_URL + resid);
         const json = await data.json();
-        console.log(json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
+        console.log(json);
         setresInfo(json.data?.cards[2]?.card?.card?.info);
         setresItems(json.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card.itemCards)
     }

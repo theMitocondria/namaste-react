@@ -7,11 +7,11 @@ export default Header = () => {
         console.log("Hello i am clalled");
     })
     return (
-        <div className="header">
+        <div className="flex justify-between">
             <div className="image_of_headeer">
                 <Link to = "/in/body" >
                     <img
-                        className="image-tag"
+                        className=" w-40  "
                         src={LOGO_URL}
                         alt="logo ka address" />
 
@@ -19,20 +19,25 @@ export default Header = () => {
 
             </div>
             <div>
-                <ul className="navlinks">
-                    <li>
+                <ul className="flex px-6 py-10  font-bold text-xl ">
+                    <li className=" mx-5 cursor-pointer">
                         <Link to="/in/body" >Home</Link>
                     </li>
-                    <li>
+                    <li className=" mx-5 cursor-pointer">
                         <Link to="/in/contact" >Contact</Link>
 
                     </li>
-                    <li>
+                    <li className=" mx-5 cursor-pointer">
                         <Link to="/in/about">About</Link>
 
                     </li>
+                    <li className=" mx-5 cur">
+                        <Link to="/in/grocery">Grocery</Link>
+
+                    </li>
                     <button
-                        onClick={() => { login === "Login" ? setlogin("Logout") : setlogin("Login") }}>l{login}</button>
+                        className="hover:text-red-700"
+                        onClick={() => { login === "Login" ? setlogin("Logout") : setlogin("Login") }}>{login}</button>
                 </ul>
             </div>
         </div>

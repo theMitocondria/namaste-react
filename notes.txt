@@ -483,3 +483,36 @@ IMPORTATNT LIFECYCLE OF CLASS BASED Component , MOUNTED:
     -> In useEffect(()=>{}) / we need to make a different async function because callback function can not be a async
         but in componentDidMount we can do it direct async
     -> componrntdidupdate is called after setstate() because update is done
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////optimising ch-09/////////////////////
+
+Single Responsibility / Custom Hooks :
+    ->Each Component should only be doing a single piece of job so we can break app into smaller piece
+        than we can do testing and debugging easily, distributing reponsibility.
+    -> example in each of component where we are fetching the data and rendering , we can do fetching data in
+        in custom hook then we can only use that jsx to show data.
+    -> have a seperate file in utils with same name as the hook (PS : "use"+hookname);
+    -> steps first of all see what is this hook returning and what arguements are it taking
+
+Chunking / Code Spliting / Dynamic Bundling / Lazy loading:
+    -> breaking into smaller chunks because JS file size needs to be reduced
+        (suppose a app has food delivery + grocery delivery) : So we need to split codebase into two -> food delivery business bundle is different so we do bundling
+    -> Initially our code is not present untill we require it (example scroll down for more restaurants) or when we go to that page/components
+
+Styling : 
+    -> Index.css is used by giving classname
+    -> SASS , SCSS writing CSS becomes easy 
+    -> Syled Components , ChakraUI
+    -> Tailwind CSS 
+        -> It is

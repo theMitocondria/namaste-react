@@ -1,5 +1,5 @@
 //after installation asa module we get react as module
-import React from "react";
+import React, { lazy , Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import About from "./components/AboutUs";
 import ContactUs from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Shimer from "./components/Shimer.js";
 
 ;//first of all make a root app component where all these will be rendered
 //india
@@ -34,6 +35,13 @@ const NewApp = () => {
         </div>
     )
 };
+
+//lazy loading
+const Grocery = lazy(() => {
+    return (
+        import("./components/Grocery.jsx")
+    )
+})
 const AppRouter = createBrowserRouter([
     {
         path: "/in",
@@ -52,8 +60,12 @@ const AppRouter = createBrowserRouter([
                 element: <ContactUs />
             },
             {
-                path : "restaurant/:resid",
-                element : <RestaurantMenu />
+                path: "restaurant/:resid",
+                element: <RestaurantMenu />
+            },
+            {
+                path: "grocery",
+                element: <Suspense fallback={<Shimer/>}><Grocery /></Suspense>
             }
         ]
     },
